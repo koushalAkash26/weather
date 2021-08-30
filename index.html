@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Magical weather</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <div class="container">
+        <div id="head" class="heading">
+          <div class="mainPallete">
+              <h1 class="homeLocationTitle">
+                  <span id="cityName"></span>,<span id="country"></span>
+              </h1>
+              <p class="HomeWeatherDescription">sunny</p>
+              <div class="imgContainer">
+                  <img class="weatherPic" src="01d.svg">
+              </div>
+              <div>
+                  <p class=temperature>16°C</p>
+              </div>
+              <p class="fTemp">feels like 16°C</p>
+             
+            </div>
+          <div class="sidePallete">
+              <div class="secondSubContainer">
+                  <div class="titleSearchContainer">
+                      <p class="presentData">Friday</p>
+                      <input type="text" class="searchBar" placeholder="enter a city name">
+
+                  </div>
+                  <div class="statusContainer">
+                      <div class="stat1">
+                          <p class="title">Humidity</p>
+                            <div class="statContainer">
+                                <img class="statImage" src="h1.png" alt="container">
+                                <p id="hdValue"class="statValue">78%</p>
+                            </div>
+                        </div> 
+                    <div class="statSpeedContainer">
+                        <div class="stat1">
+                            <p class="title">Wind speed</p>
+                              <div class="statContainer">
+                                  <img class="statImage" src="ws.png" alt="container">
+                                  
+                                    <p class="statValue"><span id="spdValue">99</span><span class="unit">m/s</span></p>
+                                    
+                              </div>
+
+                    </div>
+                    </div>
+                    <div class="statDirectContainer">
+                        <div class="stat1">
+                            <p class="title">Wind Direction</p>
+                              <div class="statContainer">
+                                  <img class="statImage" src="wd.png" alt="container">
+                                  <p id="winDir" class="statValue">ENE</p>
+                              </div>
+                          </div> 
+
+                    </div>
+                    <div class="statVisiblityContainer">
+                        <div class="stat1">
+                            <p class="title">Visiblity</p>
+                              <div class="statContainer">
+                                  <img class="statImage" src="vis.png" alt="container">
+                                  
+                                    <p class="statValue"><span id="vis"></span><span class="unit">km</span></p>
+                                    
+                              </div>
+
+                    </div>
+                    </div>
+                  </div>
+              </div>
+              
+            </div>
+        </div>
+    </div> 
+    <div class="secondScreen">
+        <div>
+            <h1>City not found , try again    </h1>
+            <input id="ss" type="text" class="searchBar" placeholder="enter a city name">
+        </div>
+        
+        
+    </div>
+    <div>
+        <p></p>
+    </div>  
+  
+<script src="app.js"></script>
+</body>
+</html>
