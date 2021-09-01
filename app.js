@@ -79,15 +79,47 @@ function calcTime(offset) {
 
 }
 window.addEventListener("load",()=>{
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=coimbatore&units=metric&appid=50a7aa80fa492fa92e874d23ad061374')
-.then(response => response.json())
-.then(data => {
-    executer(data)
+    if( navigator.geolocation )
+        {
+           // Call getCurrentPosition with success and failure callbacks
+           navigator.geolocation.getCurrentPosition( success, fail );
+        }
+        else
+        {
+           alert("Sorry, your browser does not support geolocation services.");
+        }
+     
+
+     function success(position)
+     {
+
+        let lat = position.coords.latitude;
+        let long = position.coords.longitude;
+        let lat1=lat.toFixed(2)
+        let long1=long.toFixed(2)
+        console.log(lat1)
+        console.log(long1)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat1}&lon=${long1}&units=metric&appid=50a7aa80fa492fa92e874d23ad061374`)
+    .then(response => response.json())
+    .then(data => {
+        executer(data)
+        
+        
     
     
+    })
+     }
 
+     function fail()
+     {
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=coimbatore&units=metric&appid=50a7aa80fa492fa92e874d23ad061374`)
+        .then(response => response.json())
+        .then(data => {
+            executer(data)
+        })
+     }
 
-})
+    
 })
 
 searchBox[0].addEventListener("keydown",(e)=>{
