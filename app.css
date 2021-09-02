@@ -177,11 +177,12 @@
     
 
 }
-@media only screen and (max-width: 1000px){
+@media only screen and (max-width: 1200px){
     .heading{
         
        grid-template-columns: 1fr;
        max-width: 600px;
+       
        
         
     }
@@ -190,6 +191,12 @@
         border-bottom-left-radius: 30px;
         border-top-right-radius: 0px;
 
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 700px;
     }
 }
 @media only screen and (max-width: 800px){
