@@ -15,6 +15,9 @@ let secondScreen=document.querySelector(".secondScreen")
 let secInput=document.getElementById("ss")
 
 dirData={1:"N",2:"NNE",3:"NE",4:"ENE",5:"E",6:"ESE",7:"SE",8:"SSE",9:"S",10:"SSW",11:"SW",12:"WSW",13:"W",14:"WNW",15:"NW",16:"NNW",17:"N"}
+function dispToggler(){
+    document.querySelector(".loader-wrapperMain").style.display="none"
+}
 
 function executer(data){
     console.log(data)
@@ -78,10 +81,13 @@ function calcTime(offset) {
     //return "The local time in " + city\ + " is " + nd.toLocaleString();
 
 }
+
 window.addEventListener("load",()=>{
+    
     if( navigator.geolocation )
         {
            // Call getCurrentPosition with success and failure callbacks
+           container.style.display="none"
            navigator.geolocation.getCurrentPosition( success, fail );
         }
         else
@@ -92,29 +98,36 @@ window.addEventListener("load",()=>{
 
      function success(position)
      {
-
+        container.style.display="block"
         let lat = position.coords.latitude;
         let long = position.coords.longitude;
         let lat1=lat.toFixed(2)
         let long1=long.toFixed(2)
         console.log(lat1)
         console.log(long1)
+        
+        
         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat1}&lon=${long1}&units=metric&appid=50a7aa80fa492fa92e874d23ad061374`)
     .then(response => response.json())
     .then(data => {
+        dispToggler()
         executer(data)
         
         
     
     
     })
+    
      }
 
      function fail()
      {
+       
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=coimbatore&units=metric&appid=50a7aa80fa492fa92e874d23ad061374`)
         .then(response => response.json())
         .then(data => {
+            container.style.display="block"
+            dispToggler()
             executer(data)
         })
      }
@@ -160,3 +173,13 @@ secInput.addEventListener("keydown",(e)=>{
        })
        }
 })
+/*document.onreadystatechange = function() {
+    if (document.readyState !== "complete") {
+        document.querySelector("body").style.visibility = "hidden";
+        document.querySelector(".loader-wrapper").style.visibility = "visible";
+    } else {
+        document.querySelector(".loader-wrapper").style.display = "none";
+        document.querySelector("body").style.visibility = "visible";
+    }
+};
+*/
