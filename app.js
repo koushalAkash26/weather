@@ -10,7 +10,7 @@ let speed=document.getElementById("spdValue")
 let Direction=document.getElementById("winDir")
 let visiblity=document.getElementById("vis")
 let searchBox=document.querySelectorAll(".searchBar")
-let container=document.querySelector(".container")
+let container=document.querySelector(".container1")
 let secondScreen=document.querySelector(".secondScreen")
 let secInput=document.getElementById("ss")
 
